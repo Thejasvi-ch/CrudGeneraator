@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CrudGenerator
 {
     class DataLayer
@@ -24,18 +25,24 @@ namespace CrudGenerator
                 }
                 else
                 {
-                    ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + databaseName + ";Integrated Security=False;User Id="+userName+";Password="+password+";";
+                    ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + databaseName + ";Integrated Security=False;User Id=" + userName + ";Password=" + password + ";";
                 }
-                    connection = new System.Data.SqlClient.SqlConnection(ConnectionString);
+                connection = new System.Data.SqlClient.SqlConnection(ConnectionString);
             }
             else
             {
-                ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\WindowsFormsApplication1\WindowsFormsApplication1\Rego.mdf;Integrated Security=True";
+                //if (hasUserAndPassword)
+                //{
+                //    ConnectionString = @"Data Source=;AttachDbFilename=" + databaseName + ";UniCode=True;";
+                //}
+                //else
+                //{
+                //    ConnectionString = @"Data Source=DB;AttachDbFilename=" + databaseName + ";Integrated Security=False;User Id=" + userName + ";Password=" + password + ";";
+                //}
+                //connection = new System.Data.OracleClient.OracleConnection(ConnectionString);
 
-                connection = new System.Data.SqlClient.SqlConnection(ConnectionString);
             }
-
-            return connection;
+                return connection;
         }
 
         public string GetShemaList(DbConnection conn , string dbObjectName)
